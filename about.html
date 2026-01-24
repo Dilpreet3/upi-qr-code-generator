@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="canonical" href="https://upiqrgeneratoronline.blogspot.com/p/about.html" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us - UPI QR Generator</title>
+  <meta name="description" content="Learn more about UPI QR Generator - a free online tool to create UPI payment QR codes for PhonePe, Google Pay, Paytm, and BHIM UPI apps." />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #4f46e5;
+      --primary-light: #6366f1;
+      --primary-dark: #4338ca;
+      --gray-100: #f3f4f6;
+      --gray-200: #e5e7eb;
+      --gray-300: #d1d5db;
+      --gray-600: #4b5563;
+      --gray-700: #374151;
+      --gray-800: #1f2937;
+      --gray-900: #111827;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+      color: var(--gray-800);
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    header {
+      background: linear-gradient(to right, var(--primary), var(--primary-light));
+      color: white;
+      padding: 1rem 0;
+      box-shadow: 0 4px 6px rgba(0, 0, 0,  0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .logo {
+      font-size: 1.6rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      white-space: nowrap;
+    }
+
+    .logo i {
+      font-size: 1.9rem;
+    }
+
+    /* Navbar + Hamburger */
+    .nav {
+      position: relative;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1.2rem;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: opacity 0.2s;
+    }
+
+    nav ul li a:hover {
+      opacity: 0.85;
+    }
+
+    .menu-btn {
+      display: none;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      width: 42px;
+      height: 42px;
+      padding: 8px;
+      border-radius: 10px;
+    }
+
+    .menu-btn span {
+      display: block;
+      height: 3px;
+      width: 100%;
+      background: white;
+      border-radius: 10px;
+      margin: 6px 0;
+      transition: 0.3s;
+    }
+
+    .menu-btn.active span:nth-child(1) {
+      transform: translateY(9px) rotate(45deg);
+    }
+
+    .menu-btn.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-btn.active span:nth-child(3) {
+      transform: translateY(-9px) rotate(-45deg);
+    }
+
+    @media (max-width: 768px) {
+      .menu-btn {
+        display: block;
+      }
+
+      nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 55px;
+        right: 0;
+        background: white;
+        width: 240px;
+        border-radius: 14px;
+        padding: 12px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      }
+
+      nav ul.active {
+        display: flex;
+      }
+
+      nav ul li a {
+        color: var(--gray-900);
+        font-weight: 600;
+        display: block;
+        padding: 10px 12px;
+        border-radius: 12px;
+      }
+
+      nav ul li a:hover {
+        background: var(--gray-100);
+      }
+
+      .header-content {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    }
+
+    /* Hero */
+    .hero {
+      padding: 3rem 0 1.2rem;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.7rem;
+      background: linear-gradient(to right, var(--primary), var(--primary-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      color: var(--gray-600);
+      max-width: 750px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+    }
+
+    /* Layout */
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin: 2rem 0 3rem;
+    }
+
+    @media (min-width: 992px) {
+      .grid {
+        grid-template-columns: 1.2fr 0.8fr;
+      }
+    }
+
+    .card {
+      background: white;
+      border-radius: 1rem;
+      padding: 1.6rem;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    }
+
+    .card h2 {
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .card p {
+      color: var(--gray-700);
+      margin-bottom: 1rem;
+      line-height: 1.7;
+    }
+
+    .points {
+      list-style: none;
+      display: grid;
+      gap: 0.9rem;
+      margin-top: 1rem;
+    }
+
+    .points li {
+      display: flex;
+      gap: 0.8rem;
+      align-items: flex-start;
+      color: var(--gray-700);
+    }
+
+    .point-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: var(--gray-100);
+      display: grid;
+      place-items: center;
+      color: var(--primary);
+      font-size: 1.1rem;
+      flex: 0 0 auto;
+    }
+
+    .btn {
+      background: linear-gradient(to right, var(--primary), var(--primary-light));
+      color: white;
+      border: none;
+      padding: 0.8rem 1.3rem;
+      border-radius: 0.6rem;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: 0.2s;
+      text-decoration: none;
+      margin-top: 0.5rem;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    footer {
+      background: var(--gray-800);
+      color: white;
+      padding: 2rem 0;
+      margin-top: 2rem;
+    }
+
+    .copyright {
+      text-align: center;
+      color: var(--gray-300);
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <div class="logo">
+          <i class="fas fa-qrcode"></i>
+          <span>UPI QR Generator</span>
+        </div>
+
+        <nav class="nav">
+          <button class="menu-btn" id="menuBtn" aria-label="Open Menu">
+            <span></span><span></span><span></span>
+          </button>
+
+          <ul id="navLinks">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h1>About Us</h1>
+      <p>
+        UPI QR Generator is a free online tool made to help anyone generate UPI payment QR codes instantly.
+        It works with PhonePe, Google Pay, Paytm, BHIM UPI and all UPI supported apps.
+      </p>
+    </div>
+  </section>
+
+  <main class="container">
+    <div class="grid">
+      <!-- Left -->
+      <div class="card">
+        <h2><i class="fas fa-circle-info"></i> Who We Are</h2>
+        <p>
+          We built <strong>UPI QR Generator</strong> to make digital payments easier for everyone.
+          Whether you are a shop owner, freelancer, student, or small business — you can create your own UPI QR
+          code within seconds and start receiving payments.
+        </p>
+        <p>
+          This tool runs completely in your browser, which means your details are not stored on our servers.
+          We believe in simple, fast and privacy-friendly tools.
+        </p>
+
+        <h2 style="margin-top: 1.2rem;"><i class="fas fa-bullseye"></i> Our Mission</h2>
+        <p>
+          Our mission is to provide a simple and free solution for generating UPI QR codes that works on every device,
+          without requiring any app installation or technical knowledge.
+        </p>
+
+        <a class="btn" href="index.html">
+          <i class="fas fa-qrcode"></i>
+          Generate QR Now
+        </a>
+      </div>
+
+      <!-- Right -->
+      <div class="card">
+        <h2><i class="fas fa-star"></i> Why People Use Us</h2>
+
+        <ul class="points">
+          <li>
+            <div class="point-icon"><i class="fas fa-bolt"></i></div>
+            <div>
+              <strong>Fast</strong><br>
+              Generate QR instantly with clean design.
+            </div>
+          </li>
+
+          <li>
+            <div class="point-icon"><i class="fas fa-shield-alt"></i></div>
+            <div>
+              <strong>Secure</strong><br>
+              Your data stays in your browser.
+            </div>
+          </li>
+
+          <li>
+            <div class="point-icon"><i class="fas fa-mobile-alt"></i></div>
+            <div>
+              <strong>Mobile Friendly</strong><br>
+              Works perfectly on all devices.
+            </div>
+          </li>
+
+          <li>
+            <div class="point-icon"><i class="fas fa-download"></i></div>
+            <div>
+              <strong>Download & Share</strong><br>
+              Save your QR card and share easily.
+            </div>
+          </li>
+
+          <li>
+            <div class="point-icon"><i class="fas fa-wallet"></i></div>
+            <div>
+              <strong>All UPI Apps Supported</strong><br>
+              PhonePe, GPay, Paytm, BHIM & more.
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="copyright">
+        © 2026 UPI QR Generator. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
+
+    menuBtn.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+      menuBtn.classList.toggle("active");
+    });
+
+    document.querySelectorAll("#navLinks a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("active");
+        menuBtn.classList.remove("active");
+      });
+    });
+  </script>
+</body>
+</html>
