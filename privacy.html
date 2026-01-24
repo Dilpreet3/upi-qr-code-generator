@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="canonical" href="https://upiqrgeneratoronline.blogspot.com/p/privacy-policy.html" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy - UPI QR Generator</title>
+  <meta name="description" content="Read the privacy policy of UPI QR Generator. Learn how we handle data, cookies, third-party services, and user privacy." />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #4f46e5;
+      --primary-light: #6366f1;
+      --primary-dark: #4338ca;
+      --gray-100: #f3f4f6;
+      --gray-200: #e5e7eb;
+      --gray-300: #d1d5db;
+      --gray-600: #4b5563;
+      --gray-700: #374151;
+      --gray-800: #1f2937;
+      --gray-900: #111827;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+      color: var(--gray-800);
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    header {
+      background: linear-gradient(to right, var(--primary), var(--primary-light));
+      color: white;
+      padding: 1rem 0;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .logo {
+      font-size: 1.6rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      white-space: nowrap;
+    }
+
+    .logo i {
+      font-size: 1.9rem;
+    }
+
+    /* Navbar + Hamburger */
+    .nav {
+      position: relative;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1.2rem;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: opacity 0.2s;
+    }
+
+    nav ul li a:hover {
+      opacity: 0.85;
+    }
+
+    .menu-btn {
+      display: none;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      width: 42px;
+      height: 42px;
+      padding: 8px;
+      border-radius: 10px;
+    }
+
+    .menu-btn span {
+      display: block;
+      height: 3px;
+      width: 100%;
+      background: white;
+      border-radius: 10px;
+      margin: 6px 0;
+      transition: 0.3s;
+    }
+
+    .menu-btn.active span:nth-child(1) {
+      transform: translateY(9px) rotate(45deg);
+    }
+
+    .menu-btn.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-btn.active span:nth-child(3) {
+      transform: translateY(-9px) rotate(-45deg);
+    }
+
+    @media (max-width: 768px) {
+      .menu-btn {
+        display: block;
+      }
+
+      nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 55px;
+        right: 0;
+        background: white;
+        width: 240px;
+        border-radius: 14px;
+        padding: 12px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      }
+
+      nav ul.active {
+        display: flex;
+      }
+
+      nav ul li a {
+        color: var(--gray-900);
+        font-weight: 600;
+        display: block;
+        padding: 10px 12px;
+        border-radius: 12px;
+      }
+
+      nav ul li a:hover {
+        background: var(--gray-100);
+      }
+
+      .header-content {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    }
+
+    /* Page Content */
+    .hero {
+      padding: 3rem 0 1.2rem;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.7rem;
+      background: linear-gradient(to right, var(--primary), var(--primary-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      color: var(--gray-600);
+      max-width: 850px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+    }
+
+    .card {
+      background: white;
+      border-radius: 1rem;
+      padding: 1.6rem;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      margin: 2rem 0 3rem;
+    }
+
+    .card h2 {
+      font-size: 1.35rem;
+      margin-top: 1.2rem;
+      margin-bottom: 0.6rem;
+      color: var(--primary-dark);
+    }
+
+    .card p, .card li {
+      color: var(--gray-700);
+      line-height: 1.75;
+      font-size: 1rem;
+    }
+
+    .card ul {
+      margin-left: 1.2rem;
+      margin-top: 0.6rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--gray-100);
+      border: 1px solid var(--gray-200);
+      padding: 0.4rem 0.7rem;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      color: var(--gray-700);
+      margin-top: 0.8rem;
+    }
+
+    footer {
+      background: var(--gray-800);
+      color: white;
+      padding: 2rem 0;
+      margin-top: 2rem;
+    }
+
+    .copyright {
+      text-align: center;
+      color: var(--gray-300);
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <div class="logo">
+          <i class="fas fa-qrcode"></i>
+          <span>UPI QR Generator</span>
+        </div>
+
+        <nav class="nav">
+          <button class="menu-btn" id="menuBtn" aria-label="Open Menu">
+            <span></span><span></span><span></span>
+          </button>
+
+          <ul id="navLinks">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="privacy.html">Privacy</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h1>Privacy Policy</h1>
+      <p>
+        Your privacy is important to us. This Privacy Policy explains what information we collect and how we use it.
+      </p>
+      <div class="badge">
+        <i class="fas fa-calendar-check"></i>
+        <span>Last Updated: 24 January 2026</span>
+      </div>
+    </div>
+  </section>
+
+  <main class="container">
+    <div class="card">
+      <p>
+        This Privacy Policy applies to the website <strong>UPI QR Generator</strong> (“we”, “our”, “us”).
+        By using our website, you agree to the terms of this policy.
+      </p>
+
+      <h2>1. Information We Collect</h2>
+      <p>
+        Our UPI QR Generator tool runs in your browser. We do not collect or store your UPI ID, merchant name,
+        amount, or transaction note on our servers.
+      </p>
+
+      <h2>2. How We Use Your Information</h2>
+      <p>
+        The information you enter (such as UPI ID and name) is used only to generate the QR code inside your browser.
+        We do not save, sell, or share your payment details.
+      </p>
+
+      <h2>3. Cookies</h2>
+      <p>
+        We may use cookies to improve user experience, measure website performance, and remember basic preferences.
+        Cookies do not store sensitive payment information.
+      </p>
+
+      <h2>4. Third-Party Services</h2>
+      <p>
+        Our website may use third-party tools such as:
+      </p>
+      <ul>
+        <li>CDN services (for loading libraries like QRCode.js and FontAwesome)</li>
+        <li>Analytics tools (if enabled)</li>
+        <li>Advertising services (if enabled)</li>
+      </ul>
+      <p>
+        These services may collect basic technical information such as browser type, device type, and IP address.
+        Their usage is governed by their own privacy policies.
+      </p>
+
+      <h2>5. Data Security</h2>
+      <p>
+        We take reasonable steps to keep this website secure. However, no online service can be 100% secure.
+        We recommend you always verify your UPI ID before sharing your QR code publicly.
+      </p>
+
+      <h2>6. Links to Other Websites</h2>
+      <p>
+        Our website may contain links to external websites. We are not responsible for the privacy practices
+        of those websites.
+      </p>
+
+      <h2>7. Children’s Privacy</h2>
+      <p>
+        Our service is not directed toward children under the age of 13. We do not knowingly collect personal
+        information from children.
+      </p>
+
+      <h2>8. Changes to This Privacy Policy</h2>
+      <p>
+        We may update this policy from time to time. Any changes will be posted on this page with a new “Last Updated” date.
+      </p>
+
+      <h2>9. Contact Us</h2>
+      <p>
+        If you have any questions about this Privacy Policy, you can contact us at:
+      </p>
+      <p>
+        <strong>Email:</strong> support@upiqrgenerator.com
+      </p>
+
+      <h2>Disclaimer</h2>
+      <p>
+        UPI QR Generator is an independent tool and is not affiliated with NPCI, BHIM, PhonePe, Google Pay, Paytm, or any bank.
+      </p>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="copyright">
+        © 2026 UPI QR Generator. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
+
+    menuBtn.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+      menuBtn.classList.toggle("active");
+    });
+
+    document.querySelectorAll("#navLinks a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("active");
+        menuBtn.classList.remove("active");
+      });
+    });
+  </script>
+</body>
+</html>
