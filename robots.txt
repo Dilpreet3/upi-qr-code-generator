@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://github.com/Dilpreet3/upi-qr-code-generator/sitemap.xml
