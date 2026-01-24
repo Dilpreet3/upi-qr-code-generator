@@ -606,6 +606,78 @@
                 max-width: 100%;
             }
         }
+      /* Mobile Hamburger Menu */
+.nav {
+  position: relative;
+}
+
+.menu-btn {
+  display: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  width: 42px;
+  height: 42px;
+  padding: 8px;
+  border-radius: 10px;
+}
+
+.menu-btn span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: white;
+  border-radius: 10px;
+  margin: 6px 0;
+  transition: 0.3s;
+}
+
+/* Mobile Mode */
+@media (max-width: 768px) {
+  .menu-btn {
+    display: block;
+  }
+
+  nav ul {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 55px;
+    right: 0;
+    background: white;
+    width: 220px;
+    border-radius: 12px;
+    padding: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  }
+
+  nav ul li {
+    margin: 10px 0;
+  }
+
+  nav ul li a {
+    color: #111827;
+    font-weight: 600;
+    display: block;
+    padding: 8px 10px;
+    border-radius: 10px;
+  }
+
+  nav ul li a:hover {
+    background: #f3f4f6;
+  }
+
+  nav ul.active {
+    display: flex;
+  }
+
+  /* Fix header layout */
+  .header-content {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
     </style>
 </head>
 <body>
@@ -617,16 +689,23 @@
                     <i class="fas fa-qrcode"></i>
                     <span>UPI QR Generator</span>
                 </div>
-                <nav>
-                    <ul>
-                        <li><a href="#generator">Generator</a></li>
-                        <li><a href="#features">Features</a></li>
-                        <li><a href="#guide">Guide</a></li>
-                        <li><a href="#seo-content">About UPI QR</a></li>
-                        <li><a href="#faq">FAQ</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </nav>
+                <nav class="nav">
+  <button class="menu-btn" id="menuBtn" aria-label="Open Menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <ul id="navLinks">
+    <li><a href="#generator">Generator</a></li>
+    <li><a href="#features">Features</a></li>
+    <li><a href="#guide">Guide</a></li>
+    <li><a href="#seo-content">About UPI QR</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
             </div>
         </div>
     </header>
@@ -990,6 +1069,21 @@
             const previewMerchant = document.getElementById('preview-merchant');
             const previewUpi = document.getElementById('preview-upi');
             const merchantCard = document.getElementById('merchant-card');
+
+          const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
+
+menuBtn.addEventListener("click", () => {
+  navLinks.classList.toggle("active");
+});
+
+// Auto close menu after clicking link (mobile)
+document.querySelectorAll("#navLinks a").forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("active");
+  });
+});
+
             
             // Initialize QRCode object
             let qrcode = new QRCode(qrContainer, {
