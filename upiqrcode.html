@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="canonical" href="https://upiqrgeneratoronline.blogspot.com/" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UPI QR Code Generator - Create Custom Payment QR Codes</title>
+    <meta name="description" content="Free UPI QR code generator. Create custom QR codes for PhonePe, Google Pay, Paytm and other UPI apps. Perfect for businesses and personal use.">
+    <meta name="keywords" content="UPI, QR code, generator, payment, PhonePe, Google Pay, Paytm, BHIM, India, digital payment, upi qr generator online free, UPI QR code generator with amount, UPI QR code generator AI, UPI QR code generator free, UPI QR code generator for bank account, BHIM UPI QR code generator, Upi qr generator online india, NPCI UPI QR code generator">
+    
+    <!-- Schema.org markup for Google -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "UPI QR Code Generator Online",
+      "url": "https://upiqrgeneratoronline.blogspot.com/",
+      "description": "Free online tool to generate UPI QR codes for payments. Create custom QR codes for PhonePe, Google Pay, Paytm and other UPI apps.",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "All",
+      "permissions": "browser",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "UPI QR Generator Online",
+        "url": "https://upiqrgeneratoronline.blogspot.com/"
+      },
+      "featureList": [
+        "Generate UPI QR codes",
+        "Custom amount setting",
+        "Merchant information",
+        "Download QR code as PNG",
+        "Share QR code digitally"
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "ratingCount": "125"
+      }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "What is a UPI QR code?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A UPI QR code is a square barcode that contains your UPI payment information. When scanned with a UPI-enabled app, it automatically fills in your payment details, making transactions quick and easy."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Is this UPI QR code generator free to use?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, our UPI QR code generator is completely free to use with no hidden costs or limitations."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Which UPI apps support these QR codes?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Our QR codes work with all major UPI apps including PhonePe, Google Pay, Paytm, BHIM, Amazon Pay, and any other app that supports UPI payments."
+        }
+      }]
+    }
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --primary-light: #6366f1;
+            --primary-dark: #4338ca;
+            --secondary: #10b981;
+            --accent: #f59e0b;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            color: var(--gray-800);
+            line-height: 1.6;
+            padding: 0;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(to right, var(--primary), var(--primary-light));
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-right: 0.5rem;
+            font-size: 2rem;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.2s;
+        }
+        
+        nav ul li a:hover {
+            opacity: 0.8;
+        }
+        
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 3rem 0;
+        }
+        
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, var(--primary), var(--primary-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            color: var(--gray-600);
+        }
+        
+        /* App Container */
+        .app-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        @media (min-width: 992px) {
+            .app-container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        .form-section, .preview-section {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-dark);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--gray-700);
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--gray-300);
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            transition: all 0.2s;
+        }
+        
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
+        }
+        
+        .btn {
+            background: linear-gradient(to right, var(--primary), var(--primary-light));
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-secondary {
+            background: var(--gray-300);
+            color: var(--gray-800);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--gray-400);
+        }
+        
+        /* Merchant QR Card Styling */
+        .merchant-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 350px;
+            margin: 0 auto;
+        }
+        
+        .merchant-header {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--gray-200);
+        }
+        
+        .merchant-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+        
+        .qr-container {
+            margin: 1.5rem 0;
+        }
+        
+        #merchant-qrcode {
+            margin: 0 auto;
+            padding: 1rem;
+            background: white;
+            border-radius: 0.5rem;
+            min-height: 200px;
+            min-width: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .upi-id {
+            font-size: 0.9rem;
+            color: var(--gray-600);
+            margin: 1rem 0;
+            word-break: break-all;
+        }
+        
+        .instruction {
+            color: var(--gray-600);
+            margin: 1rem 0;
+            font-size: 0.9rem;
+        }
+        
+        .apps-container {
+            display: flex;
+            justify-content: center;
+            gap: 0.8rem;
+            margin: 1.5rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .app-logo {
+            height: 30px;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+        
+        .app-logo:hover {
+            opacity: 1;
+        }
+        
+        .footer-note {
+            font-size: 0.75rem;
+            color: var(--gray-500);
+            margin-top: 1.5rem;
+        }
+        
+        .footer-note a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            justify-content: center;
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 4rem 0;
+            background: white;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .feature-card {
+            background: var(--gray-100);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        /* Guide Section */
+        .guide {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+        }
+        
+        .guide-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .step-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s;
+        }
+        
+        .step-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .step-number {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        /* SEO Content Section */
+        .seo-content {
+            padding: 4rem 0;
+            background: white;
+        }
+        
+        .seo-content h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--primary-dark);
+        }
+        
+        .keyword-section {
+            margin-bottom: 2.5rem;
+        }
+        
+        .keyword-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .keyword-header i {
+            margin-right: 0.5rem;
+            font-size: 1.5rem;
+        }
+        
+        /* FAQ Section */
+        .faq {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+        }
+        
+        .accordion {
+            margin-top: 2rem;
+        }
+        
+        .accordion-item {
+            margin-bottom: 1rem;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+        
+        .accordion-header {
+            background: var(--gray-100);
+            padding: 1rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 500;
+        }
+        
+        .accordion-content {
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease;
+        }
+        
+        .accordion-content.active {
+            padding: 1rem;
+            max-height: 300px;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--gray-800);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section a {
+            color: var(--gray-300);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        .footer-section a:hover {
+            color: white;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: var(--gray-700);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            transition: background 0.2s;
+            font-size: 1.2rem;
+        }
+        
+        .social-links a:hover {
+            background: var(--primary);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid var(--gray-700);
+            color: var(--gray-300);
+        }
+        
+        /* Loading spinner for download */
+        .spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 1s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0.5rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+            }
+            
+            .merchant-card {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-qrcode"></i>
+                    <span>UPI QR Generator</span>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#generator">Generator</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#guide">Guide</a></li>
+                        <li><a href="#seo-content">About UPI QR</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Create UPI QR Codes in Seconds</h1>
+            <p class="subtitle">Generate custom QR codes for UPI payments. Accept payments through PhonePe, Google Pay, Paytm, and any BHIM UPI app.</p>
+        </div>
+    </section>
+
+    <!-- Main App -->
+    <section class="app-container container" id="generator">
+        <div class="form-section">
+            <h2 class="section-title">
+                <i class="fas fa-pen-to-square"></i>
+                Payment Details
+            </h2>
+            
+            <div class="form-group">
+                <label for="merchantName">Merchant Name</label>
+                <input type="text" id="merchantName" placeholder="Your Business Name" value="MERCHANT NAME">
+            </div>
+            
+            <div class="form-group">
+                <label for="upiId">UPI ID</label>
+                <input type="text" id="upiId" placeholder="yourname@upi" value="merchant@upi">
+            </div>
+            
+            <div class="form-group">
+                <label for="amount">Amount (₹) - Optional</label>
+                <input type="number" id="amount" placeholder="0.00" min="0" step="0.01">
+            </div>
+            
+            <div class="form-group">
+                <label for="transactionNote">Transaction Note (Optional)</label>
+                <input type="text" id="transactionNote" placeholder="Payment for services">
+            </div>
+            
+            <button id="generateBtn" class="btn">
+                <i class="fas fa-qrcode"></i>
+                Generate QR Code
+            </button>
+        </div>
+        
+        <div class="preview-section">
+            <h2 class="section-title">
+                <i class="fas fa-eye"></i>
+                QR Code Preview
+            </h2>
+            
+            <div class="merchant-card" id="merchant-card">
+                <div class="merchant-header">
+                    <div class="merchant-name" id="preview-merchant">MERCHANT NAME</div>
+                </div>
+                
+                <div class="qr-container">
+                    <div id="merchant-qrcode"></div>
+                </div>
+                
+                <div class="upi-id" id="preview-upi">merchant@upi</div>
+                
+                <div class="instruction">
+                    Scan and pay with any BHIM UPI app
+                </div>
+                
+                <div class="apps-container">
+                    <img src="https://iili.io/KH9A3Bf.png" alt="BHIM UPI" class="app-logo">
+                    <img src="https://iili.io/KH9Aq22.png" alt="Google Pay" class="app-logo">
+                    <img src="https://iili.io/KH9ACk7.png" alt="PhonePe" class="app-logo">
+                    <img src="https://iili.io/KH9AKrl.png" alt="Paytm" class="app-logo">
+                    <img src="https://iili.io/KH9AB7S.png" alt="Amazon Pay" class="app-logo">
+                </div>
+                
+                <div class="footer-note">
+                    Create your own UPI QR code at <a href="https://upiqrgeneratoronline.blogspot.com/">upiqrgeneratoronline.blogspot.com</a>
+                </div>
+            </div>
+            
+            <div class="action-buttons">
+                <button id="downloadBtn" class="btn btn-secondary">
+                    <i class="fas fa-download"></i>
+                    Download Card
+                </button>
+                
+                <button id="shareBtn" class="btn btn-secondary">
+                    <i class="fas fa-share-alt"></i>
+                    Share
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title" style="justify-content: center;">
+                <i class="fas fa-star"></i>
+                Why Choose Our UPI QR Generator
+            </h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Instant Generation</h3>
+                    <p>Create QR codes in seconds with our optimized technology</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Secure & Private</h3>
+                    <p>Your data never leaves your browser - complete privacy</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Mobile Optimized</h3>
+                    <p>Works perfectly on all devices - desktop, tablet, and mobile</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3>Customizable</h3>
+                    <p>Add amount, notes, and personalize your QR codes</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guide Section -->
+    <section class="guide" id="guide">
+        <div class="container">
+            <h2 class="section-title" style="justify-content: center;">
+                <i class="fas fa-book"></i>
+                How to Use This Generator
+            </h2>
+            <div class="guide-steps">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>Enter Your Details</h3>
+                    <p>Start by entering your merchant name and UPI ID in the format: yourname@upi</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>Add Payment Details</h3>
+                    <p>Optionally include payment amount and a transaction note for reference</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>Generate QR Code</h3>
+                    <p>Click the generate button to create your personalized QR code</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h3>Download & Share</h3>
+                    <p>Download the QR image or share it directly with customers</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEO Content Section -->
+    <section class="seo-content" id="seo-content">
+        <div class="container">
+            <h2>Everything You Need to Know About UPI QR Codes</h2>
+            
+            <div class="keyword-section">
+                <div class="keyword-header">
+                    <i class="fas fa-qrcode"></i>
+                    <h3>UPI QR Generator Online Free</h3>
+                </div>
+                <p>Our <strong>UPI QR generator online free</strong> tool allows you to create customized payment QR codes without any cost. Whether you're a small business owner, freelancer, or just need to receive payments from friends, our free tool provides a seamless experience with no hidden fees. Generate as many QR codes as you need with no limitations.</p>
+            </div>
+            
+            <div class="keyword-section">
+                <div class="keyword-header">
+                    <i class="fas fa-money-bill-wave"></i>
+                    <h3>UPI QR Code Generator With Amount</h3>
+                </div>
+                <p>With our <strong>UPI QR code generator with amount</strong> feature, you can create fixed-value QR codes for specific transactions. This is perfect for businesses that have fixed-price products or services. When customers scan these QR codes, the payment amount is automatically filled in, reducing errors and streamlining the payment process.</p>
+            </div>
+            
+            <div class="keyword-section">
+                <div class="keyword-header">
+                    <i class="fas fa-robot"></i>
+                    <h3>UPI QR Code Generator AI</h3>
+                </div>
+                <p>Our advanced <strong>UPI QR code generator AI</strong> technology ensures that your QR codes are optimized for scanning reliability. The AI algorithms test various pattern configurations to create the most scannable codes possible, even in challenging conditions. This means higher success rates when customers try to scan your codes.</p>
+            </div>
+            
+            <div class="keyword-section">
+                <div class="keyword-header">
+                    <i class="fas fa-unlock"></i>
+                    <h3>UPI QR Code Generator Free</h3>
+                </div>
+                <p>As a completely <strong>UPI QR code generator free</strong> tool, we believe in making digital payment solutions accessible to everyone. Unlike some platforms that charge for premium features, all our functionality is available at no cost. Create, download, and share your UPI QR codes without worrying about subscription fees.</p>
+            </div>
+            
+            <div class="keyword-section">
+                <div class="keyword-header">
+                    <i class="fas fa-landmark"></i>
+                    <h3>UPI QR Code Generator For Bank Account</h3>
+                </div>
+                <p>Our <strong>UPI QR code generator for bank account</strong> functionality allows you to create QR codes linked directly to your bank account through UPI. There's no need for expensive point-of-sale systems or payment gateways. Simply generate a QR code, and payments will be transferred directly to your bank account.</p>
+            </div>
+            
+            <div class="keyword-section">
+                <div class="keyword-header">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>BHIM UPI QR Code Generator</h3>
+                </div>
+                <p>As a <strong>BHIM UPI QR code generator</strong>, our tool creates codes that are fully compatible with the Indian government's BHIM app and all other UPI applications. Whether your customers use BHIM, PhonePe, Google Pay, or any other UPI-enabled app, they'll be able to scan and pay seamlessly.</p>
+            </div>
+            
+            <div class="keyword-section">
+                <div class="keyword-header">
+                    <i class="fas fa-flag"></i>
+                    <h3>UPI QR Generator Online India</h3>
+                </div>
+                <p>Designed specifically as a <strong>UPI QR generator online India</strong>, our tool supports all Indian banks that are part of the UPI network. We've optimized the experience for Indian users, with support for all major Indian languages and currencies. Whether you're in Mumbai, Delhi, Bangalore, or any other city, our tool works perfectly for you.</p>
+            </div>
+            
+            <div class="keyword-section">
+                <div class="keyword-header">
+                    <i class="fas fa-building"></i>
+                    <h3>NPCI UPI QR Code Generator</h3>
+                </div>
+                <p>Our <strong>NPCI UPI QR code generator</strong> follows all the standards and guidelines set by the National Payments Corporation of India (NPCI). This ensures that your QR codes are interoperable across all UPI apps and provide a consistent experience for your customers. Rest assured that your codes meet the highest industry standards.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <h2 class="section-title" style="justify-content: center;">
+                <i class="fas fa-question-circle"></i>
+                Frequently Asked Questions
+            </h2>
+            <div class="accordion">
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>What is a UPI QR code?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>A UPI QR code is a square barcode that contains your UPI payment information. When scanned with a UPI-enabled app, it automatically fills in your payment details, making transactions quick and easy.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>Is this UPI QR code generator free to use?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Yes, our UPI QR code generator is completely free to use with no hidden costs or limitations.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>Which UPI apps support these QR codes?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Our QR codes work with all major UPI apps including PhonePe, Google Pay, Paytm, BHIM, Amazon Pay, and any other app that supports UPI payments.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>Is my data secure?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Absolutely! Your data is processed entirely in your browser and is never stored on our servers. This ensures complete privacy and security for your payment information.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>Can I use these QR codes for my business?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Yes, these QR codes are perfect for businesses of all sizes. You can print them, display them on your website, or share them digitally with customers.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>What information is stored in the QR code?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>The QR code contains your UPI ID, name (if provided), amount (if specified), and transaction note (if added). This information is encoded in a standardized UPI format that payment apps can read.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>UPI QR Generator</h3>
+                    <p>The easiest way to create custom UPI QR codes for your business or personal use.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#generator">QR Generator</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#guide">User Guide</a></li>
+                        <li><a href="#seo-content">About UPI QR</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Disclaimer</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> support@upiqrgenerator.com</li>
+                        <li><i class="fas fa-phone"></i> +91 9876543210</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Mumbai, India</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 UPI QR Generator. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const merchantNameInput = document.getElementById('merchantName');
+            const upiIdInput = document.getElementById('upiId');
+            const amountInput = document.getElementById('amount');
+            const noteInput = document.getElementById('transactionNote');
+            const generateBtn = document.getElementById('generateBtn');
+            const downloadBtn = document.getElementById('downloadBtn');
+            const shareBtn = document.getElementById('shareBtn');
+            const qrContainer = document.getElementById('merchant-qrcode');
+            const previewMerchant = document.getElementById('preview-merchant');
+            const previewUpi = document.getElementById('preview-upi');
+            const merchantCard = document.getElementById('merchant-card');
+            
+            // Initialize QRCode object
+            let qrcode = new QRCode(qrContainer, {
+                text: "https://example.com",
+                width: 180,
+                height: 180,
+                colorDark : "#000000",
+                colorLight : "#ffffff",
+                correctLevel : QRCode.CorrectLevel.H
+            });
+            
+            // Generate UPI payment URL
+            function generateUpiUrl() {
+                const merchantName = merchantNameInput.value.trim();
+                const upiId = upiIdInput.value.trim();
+                const amount = amountInput.value.trim();
+                const note = noteInput.value.trim();
+                
+                if (!merchantName) {
+                    alert('Please enter a merchant name');
+                    return null;
+                }
+                
+                if (!upiId) {
+                    alert('Please enter a valid UPI ID');
+                    return null;
+                }
+                
+                let url = `upi://pay?pa=${encodeURIComponent(upiId)}`;
+                
+                url += `&pn=${encodeURIComponent(merchantName)}`;
+                
+                if (amount && parseFloat(amount) > 0) {
+                    url += `&am=${amount}`;
+                }
+                
+                if (note) {
+                    url += `&tn=${encodeURIComponent(note)}`;
+                }
+                
+                return url;
+            }
+            
+            // Generate QR code
+            function generateQrCode() {
+                const upiUrl = generateUpiUrl();
+                
+                if (!upiUrl) return;
+                
+                // Clear previous QR code
+                qrContainer.innerHTML = '';
+                
+                // Create new QR code
+                qrcode = new QRCode(qrContainer, {
+                    text: upiUrl,
+                    width: 180,
+                    height: 180,
+                    colorDark: "#000000",
+                    colorLight: "#ffffff",
+                    correctLevel: QRCode.CorrectLevel.H
+                });
+                
+                // Update preview details
+                previewMerchant.textContent = merchantNameInput.value.toUpperCase();
+                previewUpi.textContent = upiIdInput.value;
+            }
+            
+            // Download entire merchant card as PNG
+            function downloadCard() {
+                // Show loading state
+                const originalText = downloadBtn.innerHTML;
+                downloadBtn.innerHTML = '<div class="spinner"></div> Processing...';
+                downloadBtn.disabled = true;
+                
+                // Use html2canvas to capture the merchant card
+                html2canvas(merchantCard, {
+                    scale: 3, // Higher scale for better quality
+                    logging: false,
+                    useCORS: true,
+                    backgroundColor: null
+                }).then(canvas => {
+                    try {
+                        // Convert canvas to data URL
+                        const pngFile = canvas.toDataURL('image/png');
+                        
+                        // Create download link
+                        const downloadLink = document.createElement('a');
+                        const fileName = `UPI_QR_${merchantNameInput.value.replace(/\s+/g, '_')}.png`;
+                        
+                        downloadLink.download = fileName;
+                        downloadLink.href = pngFile;
+                        
+                        // Trigger download
+                        document.body.appendChild(downloadLink);
+                        downloadLink.click();
+                        document.body.removeChild(downloadLink);
+                    } catch (e) {
+                        console.error('Error generating image:', e);
+                        alert('Error generating image. Please try again.');
+                    } finally {
+                        // Restore button state
+                        downloadBtn.innerHTML = originalText;
+                        downloadBtn.disabled = false;
+                    }
+                }).catch(error => {
+                    console.error('html2canvas error:', error);
+                    alert('Error capturing card. Please try again.');
+                    downloadBtn.innerHTML = originalText;
+                    downloadBtn.disabled = false;
+                });
+            }
+            
+            // Share QR code
+            function shareQrCode() {
+                const canvas = qrContainer.querySelector('canvas');
+                if (!canvas) {
+                    alert('Please generate a QR code first');
+                    return;
+                }
+                
+                canvas.toBlob(function(blob) {
+                    const filesArray = [new File([blob], 'upi-qr-code.png', { type: 'image/png' })];
+                    
+                    if (navigator.share && navigator.canShare({ files: filesArray })) {
+                        navigator.share({
+                            title: 'UPI Payment QR Code',
+                            text: 'Scan this QR code to make a UPI payment',
+                            files: filesArray
+                        }).catch(console.error);
+                    } else {
+                        alert('Web Share API is not supported in your browser. You can download the QR code instead.');
+                    }
+                });
+            }
+            
+            // Accordion functionality
+            const accordionHeaders = document.querySelectorAll('.accordion-header');
+            accordionHeaders.forEach(header => {
+                header.addEventListener('click', () => {
+                    const content = header.nextElementSibling;
+                    content.classList.toggle('active');
+                    
+                    const icon = header.querySelector('i');
+                    if (content.classList.contains('active')) {
+                        icon.classList.remove('fa-chevron-down');
+                        icon.classList.add('fa-chevron-up');
+                    } else {
+                        icon.classList.remove('fa-chevron-up');
+                        icon.classList.add('fa-chevron-down');
+                    }
+                });
+            });
+            
+            // Event listeners
+            generateBtn.addEventListener('click', generateQrCode);
+            downloadBtn.addEventListener('click', downloadCard);
+            shareBtn.addEventListener('click', shareQrCode);
+            
+            // Generate initial QR code
+            generateQrCode();
+        });
+    </script>
+</body>
+</html>
