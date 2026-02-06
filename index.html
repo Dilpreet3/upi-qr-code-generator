@@ -10,7 +10,13 @@
 
 <meta name="description" content="Create free UPI QR codes instantly. NPCI & BHIM supported QR generator with amount. Works with PhonePe, Google Pay & Paytm. No signup needed.">
     <meta name="keywords" content="UPI, QR code, generator, payment, PhonePe, Google Pay, Paytm, BHIM, India, digital payment, upi qr generator online free, UPI QR code generator with amount, UPI QR code generator AI, UPI QR code generator free, UPI QR code generator for bank account, BHIM UPI QR code generator, Upi qr generator online india, NPCI UPI QR code generator">
-    <!-- Google tag (gtag.js) -->
+   <meta property="og:image" content="https://upiqrcodegenerator.online/og-image.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Free UPI QR Code Generator | NPCI & BHIM Supported">
+<meta property="og:description" content="Create free UPI QR codes instantly. Works with PhonePe, Google Pay, Paytm & BHIM. No signup required.">
+<meta property="og:url" content="https://upiqrcodegenerator.online/">
+
+  <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-TLN2G99GJY"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -55,34 +61,35 @@
     }
     </script>
 
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [{
-        "@type": "Question",
-        "name": "What is a UPI QR code?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "A UPI QR code is a square barcode that contains your UPI payment information. When scanned with a UPI-enabled app, it automatically fills in your payment details, making transactions quick and easy."
-        }
-      }, {
-        "@type": "Question",
-        "name": "Is this UPI QR code generator free to use?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes, our UPI QR code generator is completely free to use with no hidden costs or limitations."
-        }
-      }, {
-        "@type": "Question",
-        "name": "Which UPI apps support these QR codes?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Our QR codes work with all major UPI apps including PhonePe, Google Pay, Paytm, BHIM, Amazon Pay, and any other app that supports UPI payments."
-        }
-      }]
-    }
-    </script>
+  <script type="application/ld+json">
+{
+"@context":"https://schema.org",
+"@type":"FAQPage",
+"mainEntity":[
+{
+"@type":"Question",
+"name":"How to generate UPI QR code for free?",
+"acceptedAnswer":{"@type":"Answer","text":"You can generate a UPI QR code for free using our online tool. Enter your UPI ID, optional amount, and download your QR instantly."}
+},
+{
+"@type":"Question",
+"name":"Is this NPCI QR code generator?",
+"acceptedAnswer":{"@type":"Answer","text":"Yes, our QR generator follows NPCI UPI format and works with BHIM, PhonePe, Google Pay and Paytm."}
+},
+{
+"@type":"Question",
+"name":"Can I add amount in UPI QR code?",
+"acceptedAnswer":{"@type":"Answer","text":"Yes, you can generate fixed amount UPI QR codes so users can scan and pay without entering amount manually."}
+},
+{
+"@type":"Question",
+"name":"Is my UPI data stored?",
+"acceptedAnswer":{"@type":"Answer","text":"No. Everything runs in your browser. We never store UPI IDs or payment data."}
+}
+]
+}
+</script>
+
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
@@ -1176,14 +1183,16 @@ const navLinks = document.getElementById("navLinks");
 
 menuBtn.addEventListener("click", () => {
   navLinks.classList.toggle("active");
+  menuBtn.classList.toggle("active");
 });
 
-// Auto close menu after clicking link (mobile)
 document.querySelectorAll("#navLinks a").forEach(link => {
   link.addEventListener("click", () => {
     navLinks.classList.remove("active");
+    menuBtn.classList.remove("active");
   });
 });
+
 
             
             // Initialize QRCode object
@@ -1339,9 +1348,21 @@ document.querySelectorAll("#navLinks a").forEach(link => {
             });
             
             // Event listeners
-            generateBtn.addEventListener('click', generateQrCode);
-            downloadBtn.addEventListener('click', downloadCard);
-            shareBtn.addEventListener('click', shareQrCode);
+            generateBtn.addEventListener('click', () => {
+ generateQrCode();
+ gtag('event','generate_qr');
+});
+
+downloadBtn.addEventListener('click', () => {
+ downloadCard();
+ gtag('event','download_qr');
+});
+
+shareBtn.addEventListener('click', () => {
+ shareQrCode();
+ gtag('event','share_qr');
+});
+
             
             // Generate initial QR code
             generateQrCode();
